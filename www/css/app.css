@@ -66,12 +66,12 @@ h4.center {
   float: right;
 }
 
-#online .help-inline {
+.help-inline {
   font-size: 12px;
   line-height: 14px;
 }
 
-#online .form-inline {
+.form-inline {
   margin: 0;
 }
 

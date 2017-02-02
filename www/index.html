@@ -16,10 +16,6 @@
     <script src="js/libs/jquery.jsoneditor.js"></script>
     <script src="js/libs/moment-1.7.2.js"></script>
     <script src="main.js"></script>
-
-    <!--<script src="js/app.js"></script>
-    <script src="js/user.js"></script>
-    <script src="js/admin.js"></script>-->
   </head>
   <body>
     <div class="container-fluid">
@@ -76,7 +72,7 @@
 
                   <hr/>
 
-                  <div id="query-and-meta" class="well">
+                  <div id="query-and-meta" class="well" style="display:none;">
                     <p class="well light-well">
                       Query Params - can be used to filter results returned by the sync server in the cloud - to reduce dataset stored on the client. <br/>
                       Meta Data - is passed to the cloud for all deltas (create, update & delete). This can be used to send any additional information required to complete the delta operation - e.g. user id, auth tokens etc. <br/>
@@ -90,7 +86,7 @@
 
                   <hr/>
 
-                  <div id="sync-delays" class="well">
+                  <div id="sync-delays" class="well" style="display:none;">
                     <p class="well light-well">
                       Sync Action Delays can be used for testing race conditions of sync actions from multiple clients. These values are sent as meta data to the sync service and used in the dataHandler <br/>
                       Sync Delay - number of seconds to delay the sync list operation in the cloud <br/>
@@ -104,7 +100,16 @@
                   </div>
 
                   <textarea id='notifications' rows=10 class="span12"></textarea>
-                  <button id="clearNotificationsBtn" value="Clear" class="btn btn-inverse right">Clear</button>
+                  <div class="right">
+                    <form class="form-inline">
+                      <button id="clearNotificationsBtn" value="Clear" class="btn btn-inverse">Clear</button>
+                      <label class="checkbox">
+                        <input type="checkbox" checked="checked" name="followNotifications" id="followNotifications"> Follow
+                      </label>
+                      <a class="btn btn-mini pull-right" href="#" rel="popover" data-placement="left" data-trigger="hover" data-content="Auto scroll the notifications textarea when new notifications are logged" data-original-title="Follow Notifications"><i class="icon-question-sign"></i></a>
+                      <span class="help-inline"></span>
+                    </form>
+                  </div>
                 </div>
 
                 <div class="tab-pane" id="collisions">

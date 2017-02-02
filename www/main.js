@@ -13981,7 +13981,12 @@ module.exports = (function() {
 
     handleSyncNotifications: function(notification) {
       var msg = moment().format('YYYY-MM-DD HH:mm:ss') + ' : ' + notification.code + ' (uid:' + notification.uid + ', msg:' + notification.message + ')\n';
-      $('#notifications').val(msg + $('#notifications').val());
+      var notificationsArea = $('#notifications');
+
+      notificationsArea.val(notificationsArea.val() + msg);
+      if ($('#followNotifications').is(':checked')) {
+        notificationsArea.scrollTop(notificationsArea[0].scrollHeight);
+      }
 
       if( 'sync_complete' == notification.code ) {
         datasetHash = notification.uid;
